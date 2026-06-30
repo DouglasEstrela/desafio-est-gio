@@ -1,61 +1,39 @@
-# Desafio Técnico — Banco 🏦
+# NexosBank - Solucao para o desafio
 
-Bem-vindo(a) ao desafio técnico do **Processo Seletivo Agilize — Estágio em Tecnologia**!
+## Stack
+- **Backend:** Node.js (Express 5.2.1)
+- **Frontend:** React 19 (Vite) + React Bootstrap
 
-Este desafio avalia sua capacidade de transformar **regras de negócio** em um sistema **fullstack**
-funcional, bem organizado e fácil de executar.
+## Pré-requisitos / dependências
+- Node.js instalado (recomendado v18+)
+- Em cada pasta (`backend/` e `frontend/`), rodar `npm install` para instalar as dependências
 
-> 📄 **A especificação completa está no arquivo [`ESPECIFICACAO.pdf`](./ESPECIFICACAO.pdf).** Leia-a com atenção antes de começar.
->
-> ⏰ **Prazo:** 2 dias corridos — entrega até **00h de 30/06**.
+## Como executar
 
----
+### Backend (API)
+```bash
+cd backend
+npm install
+npm start
+```
+A API sobe em `http://localhost:3000`.
 
-## 🎯 Resumo
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+O frontend sobe em `http://localhost:5173`.
 
-Construa um **Banco** sobre dois tipos de conta (corrente e poupança), respeitando as regras de negócio
-da especificação. A operação **obrigatória** é o **saque**; a **transferência** é **opcional** e conta
-como diferencial.
+> ⚠️ Suba o backend **antes** do frontend, pois o frontend consome a API em `http://localhost:3000`.
 
-A solução deve ter **duas partes que se comunicam**:
+## Exemplo de uso
+1. Acesse `http://localhost:5173` no navegador.
+2. Selecione uma conta no seletor (ex.: "Conta 1 — corrente — Saldo: R$ 1000").
+3. Digite um valor no campo "Valor do saque" e clique em "Sacar".
+4. O saldo é atualizado e uma mensagem de sucesso ou erro é exibida, conforme as regras de negócio (tarifa de R$1 para conta corrente, limite de cheque especial de -R$500, e bloqueio de saldo negativo para conta poupança).
 
-- **Backend (API):** expõe uma API HTTP com as operações (toda a regra de negócio fica aqui).
-- **Frontend:** uma interface web que consome a API e permite realizar as operações e ver os resultados.
-
-## 💻 Linguagens aceitas (backend)
-
-`JavaScript (Node.js)` · `TypeScript (Node.js)` · `Python` · `Ruby` · `PHP` · `Go`
-
-> O **frontend** pode usar HTML/CSS/JavaScript, com ou sem framework.
-
----
-
-## 🚀 Como participar
-
-1. Faça um **fork** deste repositório.
-2. Implemente **backend** e **frontend** no fork (backend em uma das linguagens aceitas).
-3. **Preencha o README** do seu fork seguindo o modelo em [`SUBMISSION.md`](./SUBMISSION.md)
-   (linguagem, pré-requisitos e **passo a passo para subir backend e frontend**).
-4. Faça **commits ao longo do desenvolvimento** — evite um único commit gigante no final.
-5. Envie o **link do seu fork** para **calison@agilize.com.br**.
-
----
-
-## ⚠️ Critério eliminatório
-
-> Projetos que **não executarem** seguindo o README — ou cujo README não permita rodar **backend e
-> frontend** — serão **eliminados**. Backend fora das linguagens aceitas também elimina.
->
-> **Teste o passo a passo em uma máquina/pasta limpa antes de enviar.**
-
----
-
-## ✅ O que será avaliado
-
-- **Funcionamento** — backend e frontend rodam, se comunicam e cumprem as regras de negócio.
-- **Qualidade do código** — clareza, organização, separação de responsabilidades, sem duplicação.
-- **Processo** — histórico de commits coerente e README claro.
-
-Dúvidas: **calison@agilize.com.br**
-
-Boa sorte! 🍀
+## Observações (opcional)
+- Persistência em memória (dados resetam a cada reinício do backend).
+- Transferência entre contas não implementada (diferencial opcional).
